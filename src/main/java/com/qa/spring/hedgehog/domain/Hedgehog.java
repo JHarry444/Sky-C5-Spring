@@ -23,6 +23,8 @@ public class Hedgehog {
     @Range(min = 1, max = 20)
     private Integer age;
 
+    @ManyToOne(targetEntity = Garden.class)
+    private Garden garden;
 
     public Hedgehog(Integer id, String name, String colour, Integer age) {
         this.id = id;
@@ -39,6 +41,14 @@ public class Hedgehog {
 
     // REQUIRED
     public Hedgehog() {
+    }
+
+    public Garden getGarden() {
+        return garden;
+    }
+
+    public void setGarden(Garden garden) {
+        this.garden = garden;
     }
 
     public Integer getId() {
