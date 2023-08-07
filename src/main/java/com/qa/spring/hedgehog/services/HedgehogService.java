@@ -10,20 +10,20 @@ public interface HedgehogService {
 
     HedgehogDTO create(HedgehogDTO hedgehog);
 
-    List<Hedgehog> create(List<Hedgehog> newHedgehogs);
+    List<HedgehogDTO> create(List<HedgehogDTO> newHedgehogs);
 
 
-    List<Hedgehog> getAll();
+    List<HedgehogDTO> getAll();
 
 
-    Hedgehog getById(int id);
+    HedgehogDTO getById(int id);
 
 
-    Hedgehog update(int id, String name, String colour, Integer age);
+    HedgehogDTO update(int id, String name, String colour, Integer age);
 
-    Hedgehog remove(int id);
+    HedgehogDTO remove(int id);
 
-    List<Hedgehog> findByName(String name);
+    List<HedgehogDTO> findByName(String name);
 
     Integer findAgeByName(String name);
 }

@@ -33,7 +33,7 @@ public class HedgehogController {
     }
 
     @PostMapping("/createMultiple")
-    public ResponseEntity<List<Hedgehog>> create(@RequestBody List<Hedgehog> newHedgehogs) {
+    public ResponseEntity<List<HedgehogDTO>> create(@RequestBody List<HedgehogDTO> newHedgehogs) {
         System.out.println("RECEIVED: " + newHedgehogs);
         if (this.service.create(newHedgehogs) != null) {
             return new ResponseEntity<>(newHedgehogs, HttpStatus.CREATED);
@@ -44,29 +44,29 @@ public class HedgehogController {
 
 
     @GetMapping("/getAll")
-    public List<Hedgehog> getAll() {
+    public List<HedgehogDTO> getAll() {
         return this.service.getAll();
     }
 
     @GetMapping("/get/{id}")
-    public Hedgehog getById(@PathVariable int id) {
+    public HedgehogDTO getById(@PathVariable int id) {
         return this.service.getById(id);
     }
 
     // @RequestParam works like @PathParam but it allows you to make certain parameters mandatory
     @PatchMapping("/update/{id}")
-    public Hedgehog update(@PathVariable int id, @RequestParam(value = "name", required = false) String name, @RequestParam(value = "colour", required = false) String colour, @RequestParam(value = "age", required = false) Integer age) {
+    public HedgehogDTO update(@PathVariable int id, @RequestParam(value = "name", required = false) String name, @RequestParam(value = "colour", required = false) String colour, @RequestParam(value = "age", required = false) Integer age) {
         return this.service.update(id, name, colour, age);
 
     }
 
     @DeleteMapping("/remove/{id}")
-    public Hedgehog remove(@PathVariable int id) {
+    public HedgehogDTO remove(@PathVariable int id) {
         return this.service.remove(id);
     }
 
     @GetMapping("/findByName/{name}")
-    public List<Hedgehog> findByName(@PathVariable String name) {
+    public List<HedgehogDTO> findByName(@PathVariable String name) {
         return this.service.findByName(name);
     }
 

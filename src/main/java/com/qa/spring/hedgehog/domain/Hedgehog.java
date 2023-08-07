@@ -26,6 +26,14 @@ public class Hedgehog {
     @ManyToOne(targetEntity = Garden.class)
     private Garden garden;
 
+    public Hedgehog(Integer id, String name, String colour, Integer age, Garden garden) {
+        this.id = id;
+        this.name = name;
+        this.colour = colour;
+        this.age = age;
+        this.garden = garden;
+    }
+
     public Hedgehog(Integer id, String name, String colour, Integer age) {
         this.id = id;
         this.name = name;
