@@ -1,13 +1,14 @@
 package com.qa.spring.hedgehog.services;
 
 import com.qa.spring.hedgehog.domain.Hedgehog;
+import com.qa.spring.hedgehog.dtos.HedgehogDTO;
 
 import java.util.List;
 
 
 public interface HedgehogService {
 
-    Hedgehog create(Hedgehog hedgehog);
+    HedgehogDTO create(HedgehogDTO hedgehog);
 
     List<Hedgehog> create(List<Hedgehog> newHedgehogs);
 

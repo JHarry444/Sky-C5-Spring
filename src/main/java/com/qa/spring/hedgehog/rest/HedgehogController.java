@@ -2,6 +2,7 @@ package com.qa.spring.hedgehog.rest;
 
 
 import com.qa.spring.hedgehog.domain.Hedgehog;
+import com.qa.spring.hedgehog.dtos.HedgehogDTO;
 import com.qa.spring.hedgehog.services.HedgehogService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,7 +28,7 @@ public class HedgehogController {
 
 
     @PostMapping("/create")
-    public ResponseEntity<Hedgehog> create(@RequestBody @Validated Hedgehog hedgehog) {
+    public ResponseEntity<HedgehogDTO> create(@RequestBody HedgehogDTO hedgehog) {
         return new ResponseEntity<>(this.service.create(hedgehog), HttpStatus.CREATED);
     }
 

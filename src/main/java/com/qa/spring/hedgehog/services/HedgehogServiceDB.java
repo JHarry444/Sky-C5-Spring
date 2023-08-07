@@ -1,6 +1,8 @@
 package com.qa.spring.hedgehog.services;
 
+import com.qa.spring.hedgehog.domain.Garden;
 import com.qa.spring.hedgehog.domain.Hedgehog;
+import com.qa.spring.hedgehog.dtos.HedgehogDTO;
 import com.qa.spring.hedgehog.exceptions.HedgehogNotFoundException;
 import com.qa.spring.hedgehog.repos.HedgehogRepo;
 import org.springframework.context.annotation.Primary;
@@ -20,8 +22,17 @@ public class HedgehogServiceDB implements HedgehogService {
     }
 
     @Override
-    public Hedgehog create(Hedgehog hedgehog) {
-        return this.repo.save(hedgehog);
+    public HedgehogDTO create(HedgehogDTO hedgehog) {
+        Hedgehog toCreate = new Hedgehog();
+        toCreate.setAge(hedgehog.getAge());
+        toCreate.setName(hedgehog.getName());
+        toCreate.setColour(hedgehog.getColour());
+        toCreate.setGarden(new Garden(hedgehog.getGardenId()));
+
+
+        Hedgehog created =  this.repo.save(toCreate);
+
+        return new HedgehogDTO(created);
     }
 
     @Override

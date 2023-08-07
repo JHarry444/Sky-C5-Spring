@@ -1,9 +1,7 @@
 package com.qa.spring.hedgehog.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Garden {
@@ -16,13 +14,29 @@ public class Garden {
 
     private String address;
 
+    @OneToMany(mappedBy = "garden") // name of FK
+    private List<Hedgehog> hedgehogs;
+
     public Garden(int id, String type, String address) {
         this.id = id;
         this.type = type;
         this.address = address;
     }
 
+
+    public Garden(int id) {
+        this.id = id;
+    }
+
     public Garden() {
+    }
+
+    public List<Hedgehog> getHedgehogs() {
+        return hedgehogs;
+    }
+
+    public void setHedgehogs(List<Hedgehog> hedgehogs) {
+        this.hedgehogs = hedgehogs;
     }
 
     public int getId() {

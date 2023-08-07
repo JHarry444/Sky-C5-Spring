@@ -2,6 +2,7 @@ package com.qa.spring.hedgehog.rest;
 
 
 import com.qa.spring.hedgehog.domain.Garden;
+import com.qa.spring.hedgehog.dtos.GardenDTO;
 import com.qa.spring.hedgehog.services.GardenService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -42,7 +43,7 @@ public class GardenController {
 
 
     @GetMapping("/getAll")
-    public List<Garden> getAll() {
+    public List<GardenDTO> getAll() {
         return this.service.getAll();
     }
 
