@@ -12,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/hedgehog")
+//@CrossOrigin
 public class HedgehogController {
 
     private HedgehogService service;
